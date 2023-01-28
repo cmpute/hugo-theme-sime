@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html lang="{{.Lang}}" style="scroll-behavior: smooth;">
+    {{ partial "head.html" . }}
+    <body class="docs">
+        <div id="main" class="fix-sidebar">
+            {{ block "main" . }}{{ end }}
+        </div>
+</html>

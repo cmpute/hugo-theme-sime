@@ -1,0 +1,7 @@
+<div id="mobile-bar">
+    <a class="menu-button fas fa-bars"></a>
+    <h2 class="nav-title">{{ .Title }}</h2>
+    {{ with .Params.download }}
+      <a class="menu-button right {{ .icon }}" href="{{ .url }}"></a>
+    {{ end }}
+</div>

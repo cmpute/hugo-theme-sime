@@ -1,0 +1,23 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="<%- theme.robots %>">
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- 基础库等 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css">
+    <link rel='stylesheet' href='https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css'>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+    <link rel='icon' type='image/x-icon' sizes='32x32' href='https://zyxin.xyz/blog/uploads/assets/icon32.png'>
+
+    <title>{{ .Site.Title }} | {{ .Site.Params.name }}</title>
+    {{ $style := resources.Get "css/page.scss" | toCSS | resources.Minify }}
+    <link rel="stylesheet" href="{{ trim $style.Permalink '/' }}" />
+</head>
+  

@@ -1,0 +1,22 @@
+{{ define "main" }}
+  {{ partial "mobilebar.html" . }}
+  {{ partial "sidebar.html" . }}
+
+  <div class="content with-sidebar">
+    <div class='resume-header'>
+      {{ with .Site.Params.avatar }}
+        <div class='avatar'><img no-lazy class='avatar' src='{{ . }}'/></div>
+      {{ end }}
+      <h1 class='resume-title'>{{ .Title }}</h1>
+      <p class='description'>{{ .Site.Params.description }}</p>
+    </div>
+    {{ .Content }}
+  </div>
+
+  <footer id="footer">
+    <p>{{ with .Site.Params.copyright }}{{ . | markdownify }} | {{ end }}{{ .Page.Lastmod.Format "2006-01-02" }}</p>
+  </footer>
+
+  {{ $common := resources.Get "js/common.js" | resources.Minify }}
+  <script src="{{ $common.Permalink }}"></script>
+{{ end }}

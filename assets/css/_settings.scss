@@ -1,0 +1,86 @@
+
+$body-font: "Liberation Serif", Menlo, Monaco, Arial, sans-serif;
+$logo-font: "Liberation Serif", Menlo, Monaco, Arial, sans-serif, cursive;
+$code-font: Menlo, Monaco, courier, monospace, Arial, sans-serif;
+
+
+$body-font-size: 16px;
+$code-font-size: 0.8em;
+
+
+$dark: #2c3e50;
+$medium: #22313f;
+$light: #7f8c8d;
+$green: #42b983;
+$color_mac_maximize: #3DC550;
+$color_mac_minimize: #FFBD2B;
+$color_mac_close: #FE5F58;
+$color_mac_finder: #1BB9FA;
+
+$border: #dddddd;
+$gridbg: #f8f8f8;
+$red: #ff6666;
+$info: #1C90F3;
+
+$color_ax_light_pink: #E7BED0;
+$color_ax_light_red: #FF8485;
+$color_ax_red: #F24E32;
+$color_ax_blue: #52A1F8;
+
+$color_success: #28C940;
+$color_warning: #FFBD2D;
+$color_error: #FF6058;
+
+$color_theme: #2196f3;
+$color_link: $color_theme;
+$color_link_highlight: #ff5722;
+
+$gap: 16px;
+$radius: 4px;
+$content-padding-top: 10px;
+$mobile-content-padding-top: 30px;
+$nav-height: 54px;
+
+
+$header-inner-height: 40px;
+$heading-padding-vertical: 8px;
+$header-height: $header-inner-height + $heading-padding-vertical * 2;
+$mobile-header-height: 40px;
+
+$heading-link-padding-top: $content-padding-top;
+$mobile-heading-link-padding-top: $mobile-header-height + $mobile-content-padding-top;
+$h2-margin-top: 2em;
+$h3-margin-top: 1.5rem;
+$h4-margin-top: 1rem;
+
+$box-shadow-nav: 0 1px 1px rgba(0, 0, 0, 0.12) 0 2px 2px rgba(0, 0, 0, 0.08);
+$box-shadow-nav-mobile: 0 1px 2px rgba(0, 0, 0, 0.12);
+$box-shadow-float: 0 4px 8px rgba(0, 0, 0, 0.12) 0 8px 16px rgba(0, 0, 0, 0.12) 0 16px 32px rgba(0, 0, 0, 0.12);
+$box-shadow-down: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+@mixin transition_all($time: 0.28s) {
+  transition: all $time ease;
+  -moz-transition: all $time ease;
+  -webkit-transition: all $time ease;
+  -o-transition: all $time ease;
+}
+
+@mixin card() {
+  @include transition_all();
+  &:hover {
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1), 0 0 8px rgba(0, 0, 0, 0.08);
+  }
+}
+
+@mixin hoverable_text() {
+  @include transition_all(0.2s);
+  &:hover {
+    color: $color_link_highlight !important;
+  }
+}
+
+@function color_for_bg($color: #ccc) {
+  @return lighten(desaturate($color, 10%), 88%)
+}
+
+$codebg: color_for_bg($color_ax_blue);

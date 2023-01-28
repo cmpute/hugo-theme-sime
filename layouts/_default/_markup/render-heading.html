@@ -1,0 +1,19 @@
+{{ $text := .PlainText }}
+{{ $id_text := replace (.PlainText | lower)  " " "-" }}
+<h{{ .Level }} id="{{$id_text}}">
+    <a href="#{{$id_text}}" class="headerlink">
+        {{ range .Page.Params.header }}
+            {{ if eq .text $text }} <i class="{{.icon}}"></i> {{ end }}
+        {{ end }}
+        {{ $text }}
+    </a>
+    {{ range .Page.Params.header }}
+        {{ if and .right_icon (eq .text $text) }}
+        <span class="right">
+            <a href="{{.right_url}}" title="{{.right_text}}">
+                <i class="{{.right_icon}}"></i>
+            </a>
+        </span>
+        {{ end }}
+    {{ end }}
+</h{{ .Level }}>

@@ -1,0 +1,44 @@
+  <div class="sidebar">
+    <div class="sidebar-inner">
+      <header class='header'>
+        <h2>{{ .Site.Params.name }}</h2>
+        {{ with .Site.Params.job }}
+          <p class='job'>{{ . }}</p>
+        {{ end }}
+        {{ if .Params.contact }}
+        <div class='meta'>
+            {{ range .Params.contact }}
+                <p><a {{ with .url }} href='{{.}}' {{ end }}>
+                <i class="{{ .icon }} fa-fw"></i>&nbsp;{{ .text }}</a></p>
+            {{ end }}
+        </div>
+        {{ end }}
+      </header>
+      <hr>
+      <div class="list">
+        <ul class="menu-root">
+          {{ $current_title := .Site.Title }}
+          {{ range .Site.AllPages }}
+            <li>
+              {{ if eq .Site.Title $current_title }}
+                <a href="{{ .RelPermalink }}" class="sidebar-link current">{{ .Site.Title }}</a>
+                {{ .TableOfContents }}
+              {{ else }}
+                <a href="{{ .RelPermalink }}" class="sidebar-link">{{ .Site.Title }}</a>
+              {{ end }}
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+      {{ with .Params.download }}
+        <div class="footer">
+            {{ $download := "javascript:window.print()" }}
+            {{ if .url}}
+                <a class="button" href="{{ .url }}"><i class="{{ .icon }}"></i> {{ .title }} </a>
+            {{ else }}
+                <a class="button" href="javascript:window.print()"><i class="{{ .icon }}"></i> {{ .title }} </a>
+            {{ end }}
+        </div>
+      {{ end }}
+    </div>
+  </div>
