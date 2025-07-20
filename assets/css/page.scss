@@ -588,6 +588,15 @@
 }
 
 @media print {
+  @page {
+    margin-top: 1cm;
+    margin-bottom: 1cm;
+    margin-left: 0.3cm;
+    margin-right: 0.3cm;
+  }
+  body {
+    zoom: 80%;
+  }
   .footer {
     display: none;
   }.content {

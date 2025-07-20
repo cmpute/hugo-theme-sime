@@ -1,0 +1,11 @@
+{{- $location := default (.Get 0) (.Get "location") -}}
+{{- $company := default (.Get 1) (.Get "company") -}}
+{{- $timespan := default (.Get 2) (.Get "timespan") -}}
+{{- $title := default (.Get 3) (.Get "title") -}}
+{{- $hasInner := gt (len (trim .Inner " \r\n")) 0 }}
+
+<p>
+<em class="right">{{ $location }}</em><strong>{{ $company }}</strong><br/>
+<span class="right">{{ $timespan }}</span>{{ $title | .Page.RenderString }}<br/>
+{{ if $hasInner }}{{ .Inner | .Page.RenderString }}{{ end }}
+</p>
