@@ -21,7 +21,7 @@ $style-guide-priority-d-color: white;.content {
   }.style-example, details, .style-enforcement {
     border-radius: $radius;
     margin: 1.6em 0;
-    padding: 1.6em;
+    padding: 0.6em 1.6em;
     h4 {
       margin-top: 0;
     }
@@ -52,23 +52,30 @@ $style-guide-priority-d-color: white;.content {
     }
   }
 }
-details, .style-enforcement {
+.style-enforcement {
   background-color: $style-guide-bg;
 }
 details {
   display: block;
-  position: relative;&:not([open]) summary {
-    &::after {
-      content: "...";
-    }&:hover {
-      background: rgba(255, 255, 255, 0.3);
-    }
-  }
+  position: relative;
+  margin: 1em 0;
+  border: 1px solid $border;
+  border-radius: $radius;
+  overflow: hidden;
+  
+  // &:not([open]) summary {
+  //   &::after {
+  //     content: "...";
+  //   }&:hover {
+  //     background: rgba(255, 255, 255, 0.3);
+  //   }
+  // }
 }
 summary {
+  background-color: color_for_bg($color_theme);
   cursor: pointer;
-  padding: 1.6em;
-  margin: -1.6em;
+  padding: 0.6em 1.6em;
+  margin: 0 -1.6em;
   outline: none;> h4 {
     display: inline-block;
     margin: 0;

@@ -4,8 +4,14 @@
 {{- $title := default (.Get 3) (.Get "title") -}}
 {{- $hasInner := gt (len (trim .Inner " \r\n")) 0 }}
 
-<p>
-<em class="right">{{ $location }}</em><strong>{{ $company }}</strong><br/>
-<span class="right">{{ $timespan }}</span>{{ $title | .Page.RenderString }}<br/>
-{{ if $hasInner }}{{ .Inner | .Page.RenderString }}{{ end }}
-</p>
+<details>
+  <summary>
+    <em class="right" style="padding-left: 1em;">{{ $location }}</em>
+    <strong>{{ $company }}</strong><br/>
+    <span class="right" style="padding-left: 1em;">{{ $timespan }}</span>
+    {{ $title | .Page.RenderString }}
+  </summary>
+  {{ if $hasInner }}
+    <p>{{ .Inner | .Page.RenderString }}</p>
+  {{ end }}
+</details>

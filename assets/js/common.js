@@ -1,6 +1,7 @@
 (function () {
   initMobileMenu()
   initSubHeaders()
+  initPrintHooks()
 
   /**
    * Mobile burger menu button and gesture for toggling sidebar
@@ -142,5 +143,24 @@
         currentActive.classList.add('active')
       }
     }
+  }
+
+  /**
+   * Automatically expand details when printing
+   */
+  function initPrintHooks() {
+    window.addEventListener('beforeprint', function () {
+      const detailsElements = document.querySelectorAll('details');
+      detailsElements.forEach(details => {
+        details.setAttribute('open', '');
+      });
+    });
+
+    window.addEventListener('afterprint', function () {
+      const detailsElements = document.querySelectorAll('details');
+      detailsElements.forEach(details => {
+        details.removeAttribute('open');
+      });
+    });
   }
 })()
